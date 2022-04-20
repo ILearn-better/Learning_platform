@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	    {% load static %}
+
+<!--    <link type="text/css" rel="stylesheet" href="{% static 'dist/css/bootstrap.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'dist/css/bootstrap.css' %}">-->
+
+	<link rel="stylesheet" href="../static/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/dist/css/bootstrap-theme.min.css">
+    <script src="../static/js/jquery-3.6.0.js"></script>
+	<script src="../static/dist/js/bootstrap.min.js"></script>
+	<style>
+		div{border:1px #1B6D85 solid;}
+        img{
+            width: 150px;
+            height: 100px;
+           /* border-radius: 50%;
+            clear:both;
+            display:block;
+            margin:auto;*/
+        }
+        div#first
+        {
+            width:200px;
+            margin:0 auto;
+        }
+
+		div{border:1px #1B6D85 solid;}
+
+	</style>
+</head>
+<body>
+<div class="container">
+	 	<h1>数学建模团队</h1>
+	 	<ul class="nav nav-tabs">
+            <li class="active"><a href="">首页</a></li>
+	 		<li><a href="">建模与算法</a></li>
+	 		<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">机器学习</a>
+				<ul class="dropdown-menu">
+					<li><a href="#">支持向量机</a></li>
+					<li><a href="#">随机森林</a></li>
+				</ul>
+			</li>
+
+	 		<li><a href="">深度学习</a></li>
+	 		<li><a href="">前端</a></li>
+            <li><a href="">后端</a></li>
+            <li><a href="">自然语言处理</a></li>
+	 	</ul>
+	 </div>
+
+
+
+
+<div class="container" style="background-color: rgb(235, 233, 233);">
+{% block base %}
+<!--	<div class="col-md-6" style="position: absolute;width:500px;height:200px;margin: 50px;">-->
+	{% endblock %}
+
+
+</div>
+
+<!--<div class="container" >-->
+<!--	<div style="position: absolute;width:500px;height:200px;margin: 50px;">-->
+<!--<p style=" position: relative;width:500px;" >-->
+<!--	-->
+<!--</p>-->
+<!--</div>-->
+
+
+<!--<img style="width:400px;height:300px;position:relative;margin-left: 600px;border:3px solid rgb(157, 157, 194);padding: 2px;"-->
+<!--src="../static/images/向日葵.jpeg" />-->
+<!--</div>-->
+
+</body>
+</html>

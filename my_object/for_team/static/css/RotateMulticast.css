@@ -1,0 +1,113 @@
+/* body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    } */
+
+    ul.slides{
+        position: relative;
+        height: 300px;
+        width: 782px;
+        /* width: 600px;
+        height: 280px; */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color:white;
+
+        overflow: hidden;
+    /* overflowe:溢出 */
+    }
+    li.slide{
+        margin: 0;
+        padding: 0;
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        /* 调整字体 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 120px;
+        color:wheat;
+
+        /* 设置切换反应时间 */
+        transition: .5s transform ease-in-out;
+    }
+
+    .slide:nth-of-type(1){
+        background:url("../images/向日葵.jpeg");
+        /* background-color: blue; */
+        background-size: 100% 100%;
+
+    }
+
+    .slide:nth-of-type(2){
+        background:url("../images/加密.jpeg");
+        /* background-color: blue; */
+        background-size:100%;
+
+        left: 100%;
+    }
+    .slide:nth-of-type(3){
+        background:url("../images/手语.jpeg");
+        /* background-color: green; */
+        background-size:100%;
+        left:200%
+    }
+
+    /* 设置手动切换点*/
+    input[type="radio"]
+    {
+        position: relative;
+        z-index: 100;
+        display: none;
+
+    }
+
+    .control-visible{
+        position: absolute;
+        width: 100%;
+        bottom: 12px;
+        text-align: center;
+    }
+    .control-visible label{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        margin: 0 3px;
+        border:2px solid rgb(179, 161, 161);
+    }
+/* 检查到.slides radio的checked状态则将control-visible下的label更换为指定颜色*/
+    .slides input[type="radio"]:nth-of-type(1):checked ~
+    .control-visible label:nth-of-type(1){
+        background-color: black;
+    }
+    .slides input[type="radio"]:nth-of-type(2):checked ~
+    .control-visible label:nth-of-type(2){
+        background-color: black;
+    }
+    .slides input[type="radio"]:nth-of-type(3):checked ~
+    .control-visible label:nth-of-type(3){
+        background-color: black;
+    }
+
+/* 检查到.slides radio的checked状态则移动.slides的slide*/
+    .slides input[type="radio"]:nth-of-type(1):checked ~
+    .slide{
+        transform:translatex(0%);
+    }
+    .slides input[type="radio"]:nth-of-type(2):checked ~
+    .slide{
+        transform:translatex(-100%);
+    }
+    .slides input[type="radio"]:nth-of-type(3):checked ~
+    .slide{
+        transform:translatex(-200%);
+    }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>花卉识别</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--        <link rel="stylesheet" href="./static/bootstrap/static/css/bootstrap.css">-->
+        <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <!--<link type="text/javascript" rel="stylesheet" href="{% static 'js/jquery-3.6.0.min.js' %}">-->
+    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<!-- link 一般引入css样式-->
+<!--eg： < link rel=“stylesheet” href=“css/index.css”>-->
+<!--link引入强调次序-->
+<!--script 一般引入的是 JAVASCRIPT 脚本-->
+<!--eg: < script src=“js/jquery-1.11.3.js”>< /script>-->
+<!--因此，引入jQuery，只能用script引入而不能用link引入-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        <style>
+        img{
+            width: 150px;
+            height: 100px;
+           /* border-radius: 50%;
+            clear:both;
+            display:block;
+            margin:auto;*/
+        }
+        div#first
+        {
+            width:200px;
+            margin:0 auto;
+        }
+
+		div{border:1px #1B6D85 solid;}
+
+	</style>
+    </head>
+    <body>
+    <hr/>
+<!--导航栏-->
+<div class="container" style="background-color: rgb(235, 233, 233);">
+	 	<h1>数学建模团队</h1>
+	 	<ul class="nav nav-tabs">
+            <li class="active"><a href="">首页</a></li>
+	 		<li><a href="">建模与算法</a></li>
+	 		<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">机器学习</a>
+				<ul class="dropdown-menu">
+					<li><a href="#">支持向量机</a></li>
+					<li><a href="#">随机森林</a></li>
+				</ul>
+			</li>
+
+	 		<li><a href="">深度学习</a></li>
+	 		<li><a href="">前端</a></li>
+            <li><a href="">后端</a></li>
+            <li><a href="">自然语言处理</a></li>
+	 	</ul>
+</div>
+
+<!--结果输出框架-->
+<div class="container" style="background-color: rgb(235, 233, 233);">
+
+<!--	<div class="col-md-6" style="position: absolute;width:500px;height:200px;margin: 50px;">-->
+        	<div class="col-md-4" style="position: relative;width:500px;height:300px;margin: 65px;background-color:rgb(99, 92, 83);">
+
+        {% for i,j in pre.items %}
+        <div class="col-md-6" style="position: relative;background-color: tan;">
+
+        <li style="font-size: 20px;">{{i}}:</li>
+    </div>
+
+        <div class="col-md-6" style="background-color: tan;">
+        <a1 style="font-size: 20px;">{{j}}</a1><br/>
+    </div>
+        {% endfor %}
+
+    </div>
+
+<div class="col-md-4" style="width:400px;height:350px;position:relative;margin: 50px;padding:5px;padding-left: 10px;background-color: rgb(85, 144, 156);">
+<!--    <img style="width:400px;height:300px;position:relative;margin-left: 550px;border:3px solid rgb(157, 157, 194);padding: 2px;" src="{{user}}" class="img-thumbnail"><br/>-->
+        <img style="width:350px;height:250px;background-color:rgb(161, 176, 240);" src="{{user}}" ><br/>
+<!--class="img-thumbnail"-->
+    <form enctype="multipart/form-data" action="/pic/upload_file" method="post" style="position:relative">
+    <!--     此处是提交表单的编写       -->
+            <!--        action一定要是函数路由-->
+            {% csrf_token %}
+<!--            <div class="form-group">-->
+        <div  style="position:relative;border:0;padding-top:10px">
+           <input style="margin-left: 30px;" type="file" class="btn btn-default" name="photo" />
+        </div>
+        
+
+        <div  style="position:relative;border:0;padding-top:5px">
+           <input style="position:relative;width:75%;margin-left: 30px;" type="submit" class="btn btn-default" value="上传图片并预测"/>
+        </div>
+
+        </form>
+</div>
+
+
+</div>
+
+
+
+
+<!--<div class="container">-->
+<!--&lt;!&ndash; 布局测试   &ndash;&gt;-->
+<!--    <div class="row">-->
+
+
+<!--    <div class="col-md-6">1-->
+
+<!--    </div>-->
+
+
+<!--    <div class="col-md-6">1-->
+<!--        -->
+<!--    </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+    </body>
+    </html>
